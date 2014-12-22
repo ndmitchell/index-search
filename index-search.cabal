@@ -47,6 +47,22 @@ library
         cbits/ds_ssort/deep2.c
         cbits/fm_huffman.c
         cbits/ds_ssort/blind2.c
+    include-dirs:
+        cbits
+        cbits/ds_ssort
+    install-includes:
+        fm_index.h
+        fm_occurences.h
+        fm_mng_bits.h
+        fm_common.h
+        fm_errors.h
+        fm_extract.h
+        fm_build.h
+        fm_search.h
+        interface.h
+        bzlib_private.h
+        ds_ssort.h
+        common.h
 
     exposed-modules:
         Data.IndexSearch.Type
