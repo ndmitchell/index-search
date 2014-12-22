@@ -1,0 +1,70 @@
+cabal-version:      >= 1.10
+build-type:         Simple
+name:               index-search
+version:            0.1
+license:            GPL
+license-file:       LICENSE
+category:           Text
+author:             Neil Mitchell <ndmitchell@gmail.com>
+maintainer:         Neil Mitchell <ndmitchell@gmail.com>
+copyright:          Neil Mitchell 2014
+synopsis:           Index searching
+description:
+    Todo
+homepage:           https://github.com/ndmitchell/index-search#readme
+bug-reports:        https://github.com/ndmitchell/index-search/issues
+tested-with:        GHC==7.8.3, GHC==7.6.3, GHC==7.4.2, GHC==7.2.2
+extra-source-files:
+    README.md
+    CHANGES.txt
+
+source-repository head
+    type:     git
+    location: https://github.com/ndmitchell/index-search.git
+
+library
+    hs-source-dirs: src
+    default-language: Haskell2010
+
+    build-depends:
+        base >= 4 && < 5,
+        bytestring
+
+    c-sources:
+        cbits/fm_read.c
+        cbits/fm_mng_bits.c
+        cbits/fm_common.c
+        cbits/fm_occurences.c
+        cbits/fm_build.c
+        cbits/fm_search.c
+        cbits/fm_errors.c
+        cbits/fm_multihuf.c
+        cbits/fm_extract.c
+        cbits/ds_ssort/globals.c
+        cbits/ds_ssort/ds.c
+        cbits/ds_ssort/shallow.c
+        cbits/ds_ssort/helped.c
+        cbits/ds_ssort/deep2.c
+        cbits/fm_huffman.c
+        cbits/ds_ssort/blind2.c
+
+    exposed-modules:
+        Data.IndexSearch.Type
+
+    other-modules:
+        Data.IndexSearch
+        Data.IndexSearch.FMIndex
+
+test-suite index-search-test
+    hs-source-dirs: src
+    type: exitcode-stdio-1.0
+    main-is: Main.hs
+    default-language: Haskell2010
+
+    build-depends:
+        base >= 4 && < 5,
+        index-search,
+        extra,
+        filepath,
+        directory,
+        bytestring
