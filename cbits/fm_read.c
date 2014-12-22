@@ -7,6 +7,8 @@
 #include "fm_occurences.h"
 #include "fm_mng_bits.h"	/* Function to manage bits */
 
+typedef unsigned int uint;
+
 static int open_file (char * filename, uchar ** file, ulong * size);
 static int fm_read_basic_prologue (fm_index * s);
 
