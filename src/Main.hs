@@ -3,10 +3,8 @@
 module Main(main) where
 
 import Data.IndexSearch.FMIndex
-import qualified Data.ByteString.Char8 as BS
 import Control.Exception.Extra
 import System.Directory
-import System.FilePath
 
 
 main :: IO ()
