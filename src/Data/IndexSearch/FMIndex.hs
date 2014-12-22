@@ -23,7 +23,7 @@ data Idx
 -- prototypes from the library
 foreign import ccall "build_index" build_index :: CString -> CLong -> CString -> Ptr (Ptr Idx) -> IO CInt
 foreign import ccall "load_index" load_index :: CString -> Ptr (Ptr Idx) -> IO CInt
-foreign import ccall "&free_index" free_index :: FunPtr (Ptr Idx -> IO ())
+-- foreign import ccall "&free_index" free_index :: FunPtr (Ptr Idx -> IO ())
 foreign import ccall "save_index" save_index :: Ptr Idx -> CString -> IO CInt
 foreign import ccall "index_size" size_index :: Ptr Idx -> Ptr CLong -> IO CInt
 
