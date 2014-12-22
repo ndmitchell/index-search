@@ -628,6 +628,8 @@ return i;
 	 complete bucket. the procedure returns the number of chars written to
 	 dest (which can be less than limit (if a EOB is encountered)) 
 	 ******************************************************************** */ 
+__inline__ int decode_unary (void);
+
 	int
 fm_multihuf_decompr (uchar * dest, int alpha_size, int limit) 
 {
@@ -638,7 +640,6 @@ int minLen,
 				    int maxLen, int alphaSize);
 	
 
-__inline__ int decode_unary (void);
 	
 int t, i, j, minLen, maxLen, len, nGroups;
 	

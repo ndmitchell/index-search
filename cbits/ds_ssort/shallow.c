@@ -85,9 +85,10 @@ __inline__ Int32 *med3func(Int32 *a, Int32 *b, Int32 *c, UChar *text_depth)
    that is when we have found that the current set of strings
    have Shallow_limit chars in common
    ******************************************************** */
+  __inline__ void vecswap2(Int32 *a, Int32 *b, int n);
+
 void shallow_mkq(Int32 *a, int n, UChar *text_depth)
 {
-  __inline__ void vecswap2(Int32 *a, Int32 *b, int n);
   int d, r, partval;
   Int32 *pa, *pb, *pc, *pd, *pl, *pm, *pn, t;
   UChar *next_depth;
@@ -181,7 +182,6 @@ __inline__ Int32 *med3func16(Int32 *a, Int32 *b, Int32 *c, UChar *text_depth)
 
 void shallow_mkq16(Int32 *a, int n, UChar *text_depth)
 {
-  __inline__ void vecswap2(Int32 *a, Int32 *b, int n);
   int d, r, partval;
   Int32 *pa, *pb, *pc, *pd, *pl, *pm, *pn, t;
   UChar *next_depth;
@@ -259,7 +259,6 @@ void shallow_mkq16(Int32 *a, int n, UChar *text_depth)
                                   | ((*((s)+2)) << 8) | (*((s)+3)) ))
 void shallow_mkq32(Int32 *a, int n, UChar *text_depth)
 {
-  __inline__ void vecswap2(Int32 *a, Int32 *b, int n);
   UInt32 partval, val;
   Int32 *pa, *pb, *pc, *pd, *pl, *pm, *pn, t, d, r;
   UChar *next_depth;
@@ -491,9 +490,9 @@ Int32 cmp_unrolled_shallow_lcp(UChar *b1, UChar *b2)
    ***************************************************************** */
 static int lcp_aux[1+Max_thresh];
 static int *lcp=lcp_aux+1; 
+  __inline__ Int32 cmp_unrolled_shallow_lcp(UChar *, UChar *);
 static void shallow_inssort_lcp(Int32 *a, Int32 n, UChar *text_depth)
 {   
-  __inline__ Int32 cmp_unrolled_shallow_lcp(UChar *, UChar *);
   Int32 i, j, j1, lcp_new, r, ai,lcpi;
   Int32 cmp_from_limit;
   UChar *text_depth_ai;

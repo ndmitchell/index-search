@@ -131,10 +131,10 @@ Int32 cmp_unrolled_lcp(UChar *b1, UChar *b2)
 #define Swap(i,j) {tmp=a[i]; a[i]=a[j]; a[j]=tmp;}
 #define Pushd(x,y,z) {stack_lo[sp]=x; stack_hi[sp]=y; stack_d[sp]=z; sp++;}
 #define Popd(x,y,z)  {sp--; x=stack_lo[sp]; y=stack_hi[sp]; z=stack_d[sp];} 
+  __inline__ Int32 cmp_unrolled_lcp( UChar *b1, UChar *b2 );
 void qs_unrolled_lcp(Int32 *a, int n, int depth, int blind_limit)
 { 
   void blind_ssort(Int32 *a, Int32 n, Int32 depth);
-  __inline__ Int32 cmp_unrolled_lcp( UChar *b1, UChar *b2 );
   UChar *text_depth, *text_pos_pivot;
   Int32 stack_lo[STACK_SIZE];
   Int32 stack_hi[STACK_SIZE];
