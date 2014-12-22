@@ -65,11 +65,11 @@ library
         common.h
 
     exposed-modules:
-        Data.IndexSearch.Type
-
-    other-modules:
         Data.IndexSearch
         Data.IndexSearch.FMIndex
+
+    other-modules:
+        Data.IndexSearch.Type
 
 test-suite index-search-test
     hs-source-dirs: src
