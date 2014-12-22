@@ -45,7 +45,8 @@ loadIndex file = withCString file $ \file -> wrapIndex $ load_index file
 wrapIndex :: (Ptr (Ptr Idx) -> IO CInt) -> IO Index
 wrapIndex f = do
     ptr <- peekResult f
-    ptr <- newForeignPtr free_index ptr
+    -- ptr <- newForeignPtr free_index ptr
+    let withForeignPtr ptr f = f ptr
     return Index
         {idxSave = \file -> withCString file $ \file -> withForeignPtr ptr $ \ptr ->
             check $ save_index ptr file
@@ -56,14 +57,14 @@ wrapIndex f = do
         ,idxLocate = \x n -> BS.unsafeUseAsCStringLen x $ \(str,len) -> withForeignPtr ptr $ \ptr -> do
             (arr,len) <- peekResult2 $ locate_index ptr str (int len)
             res <- map int <$> peekArray (int len) arr
-            free arr
+            -- free arr
             return res
         ,idxExtract = \from to -> withForeignPtr ptr $ \ptr -> do
             print (from, to)
             (str,len) <- peekResult2 $ extract_index ptr (int from) (int to)
             print len
             res <- BS.packCStringLen (str, int len)
-            free str
+            --free str
             print res
             return res
         }
