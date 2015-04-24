@@ -1,4 +1,6 @@
-# Index Search [![Hackage version](https://img.shields.io/hackage/v/index-search.svg?style=flat)](https://hackage.haskell.org/package/index-search) [![Build Status](https://img.shields.io/travis/ndmitchell/index-search.svg?style=flat)](https://travis-ci.org/ndmitchell/index-search)
+# Index Search
 
-Searching compressed text indicies. The code under cbits was obtained from
+Haskell library for searching compressed text indicies. The code under cbits was obtained from
 http://pizzachili.dcc.uchile.cl/indexes/FM-indexV2/fmindexV2.tgz
+
+The C code does not work on 64 bit machines, so this code is generally unsuitable for use.
